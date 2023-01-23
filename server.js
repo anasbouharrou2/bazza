@@ -7,6 +7,7 @@ const configuration = new Configuration({
 });
 
 const openai = new OpenAIApi(configuration);
+const PORT = process.env.PORT || 3030;
 
 // console.log(process.env.OPENAI_KEY);
 function generate_prompt(question){
@@ -64,6 +65,6 @@ app.post("/", async (req, res) => {
   }
 });
 
-app.listen(8000, () => {
-  console.log("App is running");
+app.listen(PORT, () => {
+    console.log(`server started on port ${PORT}`);
 });
